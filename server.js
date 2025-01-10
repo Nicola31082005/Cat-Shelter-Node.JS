@@ -13,6 +13,34 @@ initCats()
 
 const server = http.createServer((req, res) => {
 
+
+if (req.method === 'POST') {
+    
+    let body = ''
+
+    req.on('data', (chunk => body += chunk.toString()));
+
+    req.on('end', () => {
+
+        const data = new URLSearchParams(body)
+
+        cats.push({
+            ...Object.fromEntries(data.entries())
+        })
+        
+        updateCats()
+
+        res.writeHead(301, {
+            'location' : '/'
+        })
+
+        res.end()
+    })
+
+    return 
+}
+
+// Applying css
 if (req.url === '/styles/site.css') {
     
     res.writeHead(200, {
@@ -28,6 +56,7 @@ res.writeHead(200, {
     'content-type' : 'text/html'
 });
 
+// Custom routing
 switch (req.url) {
     case '/':
         res.write(indexHtml(cats))
@@ -52,6 +81,10 @@ async function initCats() {
     cats = JSON.parse(catsJSON)
 }
 
+async function updateCats() {
+    let catsJSON = JSON.stringify(cats, null, 2);
+    await fs.writeFile('./cats.json', catsJSON, { encoding: 'utf-8' });
+}
 
 server.listen(5000)
 console.log('server listens on port: 5000');

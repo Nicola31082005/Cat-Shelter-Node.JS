@@ -24,14 +24,14 @@ export const addCat = () =>
         <h1>Cat Shelter</h1>
     </header>
     <main>
-        <form action="#" method="" class="cat-form" enctype="multipart/form-data">
+        <form action="./server.js" method="POST" class="cat-form">
             <h2>Add Cat</h2>
             <label for="name">Name</label>
             <input name="name" type="text" id="name">
             <label for="description">Description</label>
             <textarea name="description" id="description"></textarea>
-            <label for="image">Image</label>
-            <input name="upload" type="file" id="image">
+            <label for="image">Image Url</label>
+            <input name="upload" type="text" id="image">
             <label for="group">Breed</label>
             <select name="breed" id="group">
                 <option value="Fluffy Cat">Fluffy Cat</option>
