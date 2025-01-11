@@ -24,7 +24,7 @@ export const addCat = (breeds) =>
         <h1>Cat Shelter</h1>
     </header>
     <main>
-        <form action="./server.js" method="POST" class="cat-form">
+        <form action="/cats/add-cat" method="POST" class="cat-form">
             <h2>Add Cat</h2>
             <label for="name">Name</label>
             <input name="name" type="text" id="name">
