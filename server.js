@@ -5,9 +5,11 @@ import { addCat } from './views/addCat.html.js';
 import { addBreed } from './views/addBreed.html.js';
 import { siteCss } from './content/styles/site.css.js'
 
-let cats = []
+let cats = [];
+let breeds = [];
 
 initCats()
+loadBreeds()
 
 
 
@@ -62,7 +64,7 @@ switch (req.url) {
         res.write(indexHtml(cats))
         break;
     case '/cats/add-cat':
-        res.write(addCat())
+        res.write(addCat(breeds))
         break;
     case '/cats/add-breed':
         res.write(addBreed())
@@ -84,6 +86,11 @@ async function initCats() {
 async function updateCats() {
     let catsJSON = JSON.stringify(cats, null, 2);
     await fs.writeFile('./cats.json', catsJSON, { encoding: 'utf-8' });
+}
+
+async function loadBreeds() {
+    let breedsJSON = await fs.readFile('./breeds.json', { encoding: 'utf-8' });
+    breeds = JSON.parse(breedsJSON)
 }
 
 server.listen(5000)
