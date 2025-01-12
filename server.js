@@ -35,7 +35,19 @@ const server = http.createServer((req, res) => {
           breeds.push(breed);
           updateBreeds();
         }
+      } else if (req.url === "/cats/edit-cat") {
+        const catIndex = parseInt(data.get("index"), 10);
+        
+        cats[catIndex] = {
+            name: data.get("name"),
+            breed: data.get("breed"),
+            description: data.get("description"),
+            imageUrl: data.get("imageUrl")
+        }
+
+        updateCats()
       }
+
 
       res.writeHead(301, {
         location: "/",
@@ -81,7 +93,7 @@ const server = http.createServer((req, res) => {
 
       const currentCat = cats[catIndex];
 
-      res.write(editCat(currentCat, breeds));
+      res.write(editCat(currentCat, breeds, catIndex));
       
       break;
     default:

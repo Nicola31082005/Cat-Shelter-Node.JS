@@ -1,4 +1,4 @@
-export const editCat = (cat, breeds) => 
+export const editCat = (cat, breeds, index) => 
 `
 <!DOCTYPE html>
 <html lang="en">
@@ -24,16 +24,18 @@ export const editCat = (cat, breeds) =>
         <h1>Cat Shelter</h1>
     </header>
     <main>
-        <form action="#" method="" class="cat-form" enctype="multipart/form-data">
+        <form action="/cats/edit-cat" method="POST" class="cat-form">
+        
             <h2>Edit Cat</h2>
+            <input type="hidden" name="index" value="${index}">   
             <label for="name">Name</label>
-            <input type="text" id="name" value=${cat.name}>
+            <input type="text" name="name" value="${cat.name || ''}">
             <label for="description">Description</label>
-            <textarea id="description">${cat.description}</textarea>
+            <textarea name="description">${cat.description || ''}</textarea>
             <label for="image">Image</label>
-            <input type="text" id="image" value=${cat.imageUrl}>
+            <input type="text" name="imageUrl" value="${cat.imageUrl || ''}">
             <label for="group">Breed</label>
-            <select id="group">
+            <select id="group" name="breed">
                  ${breeds.map(breed => 
                     `<option value="${breed}">${breed}</option>`
                 )}
