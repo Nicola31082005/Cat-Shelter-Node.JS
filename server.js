@@ -4,6 +4,8 @@ import { indexHtml } from "./views/home/index.html.js";
 import { addCat } from "./views/addCat.html.js";
 import { addBreed } from "./views/addBreed.html.js";
 import { siteCss } from "./content/styles/site.css.js";
+import { editCat } from "./views/editCat.html.js";
+
 
 let cats = [];
 let breeds = [];
@@ -60,15 +62,27 @@ const server = http.createServer((req, res) => {
   });
 
   // Custom routing
-  switch (req.url) {
-    case "/":
+  switch (true) {
+    case req.url === "/":
       res.write(indexHtml(cats));
       break;
-    case "/cats/add-cat":
+    case req.url === "/cats/add-cat":
       res.write(addCat(breeds));
       break;
-    case "/cats/add-breed":
+    case req.url === "/cats/add-breed":
       res.write(addBreed());
+      break;
+    case req.url.startsWith("/cats/edit-cat"):
+
+      const url = new URL(req.url, `https://${req.headers.host}`);
+      const catIndex = parseInt(url.searchParams.get('index'), 10);
+
+      if (isNaN(catIndex) && !catIndex >= 0 && !catIndex < cats.length) return
+
+      const currentCat = cats[catIndex];
+
+      res.write(editCat(currentCat, breeds));
+      
       break;
     default:
       res.write("Page not found");
