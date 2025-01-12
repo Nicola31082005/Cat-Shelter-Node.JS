@@ -23,5 +23,11 @@
     "breed": "Bombay Cat",
     "description": "Dominant and aggressive to other cats. Will probably eat you in your sleep. Very cute tho.",
     "imageUrl": "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"
+  },
+  {
+    "name": "Joshua",
+    "description": "Lonely and lazy cat seek for a hospitable owner",
+    "imageUrl": "https://media.npr.org/assets/img/2023/12/12/martin-d5c3501c8e1cfdf3e1a86e58a9b590cba8211335.jpg?s=1100&c=50&f=jpeg",
+    "breed": "Joshua"
   }
 ]

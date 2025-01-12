@@ -27,13 +27,13 @@ export const addCat = (breeds) =>
         <form action="/cats/add-cat" method="POST" class="cat-form">
             <h2>Add Cat</h2>
             <label for="name">Name</label>
-            <input name="name" type="text" id="name">
+            <input name="name" type="text" id="name" required>
             <label for="description">Description</label>
-            <textarea name="description" id="description"></textarea>
+            <textarea name="description" id="description" required></textarea>
             <label for="image">Image Url</label>
-            <input name="upload" type="text" id="image">
+            <input name="imageUrl" type="text" id="image" required>
             <label for="group">Breed</label>
-            <select name="breed" id="group">
+            <select name="breed" id="group" required>
                 ${breeds.map(breed => 
                     `<option value="${breed}">${breed}</option>`
                 )}
