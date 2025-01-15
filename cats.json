@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Topcho",
+    "breed": "Belgium Cat",
+    "description": "Cute and nice cat!",
+    "imageUrl": "https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1"
+  },
+  {
+    "name": "Ivo",
+    "breed": "Bombay Cat",
+    "description": "Dominant and aggressive to other cats. Will probably eat you in your sleep. Very cute tho.",
+    "imageUrl": "https://cdn.pixabay.com/photo/2018/08/08/05/12/cat-3591348_1280.jpg"
+  },
+  {
+    "name": "Poli",
+    "breed": "Bombay Cat",
+    "description": "Dominant and aggressive to other cats. Will probably eat you in your sleep. Very cute tho.",
+    "imageUrl": "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg",
+    "price": "350$"
+  },
+  {
+    "name": "Moni",
+    "breed": "Bombay Cat",
+    "description": "Dominant and aggressive to other cats. Will probably eat you in your sleep. Very cute tho.",
+    "imageUrl": "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg"
+  },
+  {
+    "name": "Joshua",
+    "description": "Lonely and lazy cat seek for a hospitable owner",
+    "imageUrl": "https://media.npr.org/assets/img/2023/12/12/martin-d5c3501c8e1cfdf3e1a86e58a9b590cba8211335.jpg?s=1100&c=50&f=jpeg",
+    "breed": "Joshua"
+  }
+]
