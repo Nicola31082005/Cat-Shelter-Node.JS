@@ -22,10 +22,6 @@ const server = http.createServer((req, res) => {
     req.on("end", () => {
       const data = new URLSearchParams(body);
 
-<<<<<<< HEAD
-server.listen(5000)
-console.log('server listens on port: 5000');
-=======
       if (req.url === "/cats/add-cat") {
         cats.push({
           ...Object.fromEntries(data.entries()),
@@ -130,4 +126,3 @@ async function updateBreeds() {
 
 server.listen(5000);
 console.log("server listens on port: 5000");
->>>>>>> 772728a36312797333be05b1ea1ff667c08a57a7
